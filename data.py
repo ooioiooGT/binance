@@ -30,6 +30,12 @@ def getdata(symbol, timeframe, start_date):
     df = df.apply(pd.to_numeric)
     
     return df
+def  currentdata(symbol):
+    klines = client.get_symbol_ticker(symbol=symbol)
+    currentprice = float(klines['price'])
+    print(currentprice)
+    return currentprice
+
 def plot_chart(data_frame, title):
     plt.figure(figsize=(10, 6))
     
@@ -46,10 +52,12 @@ def plot_chart(data_frame, title):
 # Example usage
 
 while True:
-    answer = input('''1. Hourly report
+    answer = input('''
+1. Hourly report
 2. 15 mins report
 3. 1 min report
-4. Exit
+4. current data 
+5. Exit
 Select an option (enter the corresponding number): ''')
 
     if answer in ['1', '2', '3']:
@@ -75,10 +83,16 @@ Select an option (enter the corresponding number): ''')
             print('1 min report:')
             print(data_frame)
             plot_chart(data_frame, '1 min report')
+        
+    # elif answer == '4':
+    #         symbol = input('What do you want to search: ').upper()
+    #         currentdata(symbol)
 
-    elif answer == '4':
-        print('Exiting the program.')
-        break
+    elif answer == '5':
+            print('Exiting the program.')
+            break
+
+
 
     else:
         print('Invalid input. Please enter a valid option.')

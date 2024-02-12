@@ -3,7 +3,7 @@
 In this project is focus on data analysis. 
 I get the data using API from Binance cryto bank, and use matplotlib library visualized all the data.  
 
-[Software Demo Video](http://youtube.link.goes.here)
+[Software Demo Video](https://youtu.be/JVytJ456vXE)
 
 # Data Analysis Results
 
